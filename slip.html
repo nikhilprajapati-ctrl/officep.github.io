@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courier Slip Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .form-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      width: 45%;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 7px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn {
+      margin: 30px auto;
+      display: block;
+      background-color: #007bff;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    #printArea {
+      display: none;
+    }
+
+    @media print {
+      body * {
+        display: none !important;
+      }
+
+      #printArea, #printArea * {
+        display: block !important;
+      }
+
+      #printArea {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      .slip {
+        width: 100%;
+        height: 48%;
+        box-sizing: border-box;
+        border: 2px solid black;
+        padding: 15px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        page-break-inside: avoid;
+        position: relative;
+      }
+
+      .slip h3 {
+        text-align: center;
+        margin-bottom: 10px;
+		margin-top: 10px;
+        border-bottom: 1px solid black;
+        padding-bottom: 5px;
+      }
+	  .slip h3a {
+        text-align: center;
+		font-size: 25px;
+		margin-top: -20px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid black;
+		border-top: 1px solid black;
+        padding-bottom: 0px;
+      }
+	  .slip h4 {
+        text-align: left;
+		margin-top: -2px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+		font-size: 30px;
+		}
+	  .slip h5 {
+        text-align: right;
+		margin-top: -30px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+		font-size: 20px;
+		}
+		.slip h6 {
+        text-align: left;
+		margin-left: 200PX;
+		margin-top: -35px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+		font-size: 17px;
+		}
+		.slip h7 {
+        text-align: left;
+		margin-left: 100PX;
+		margin-top: -20px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+		font-size: 17px;
+		}
+
+
+      .logo {
+        position: absolute;
+        top: -2px;
+        left: 15px;
+        width: 70px;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h2>COURIER SLIP GENERATE</h2>
+
+<div class="form-container">
+  <div class="form-box">
+    <h3>Slip 1</h3>
+    <label>Customer Name</label>
+    <input type="text" id="name1">
+    <label>Customer Phone</label>
+    <input type="text" id="phone1">
+    <label>Address Line 1</label>
+    <input type="text" id="addr1_1">
+   
+    <label>State</label>
+    <select id="state1">
+       <option value="">Select State</option>
+     <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option>
+      <option>Bihar</option><option>Chhattisgarh</option><option>Goa</option>
+      <option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option>
+      <option>Jharkhand</option><option>Karnataka</option><option>Kerala</option>
+      <option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option>
+      <option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option>
+      <option>Odisha</option><option>Punjab</option><option>Rajasthan</option>
+      <option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option>
+      <option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option>
+      <option>West Bengal</option><option>Delhi</option><option>Puducherry</option>
+    </select>
+    <label>PIN Code</label>
+    <input type="text" id="pin1">
+    <label>Date</label>
+    <input type="date" id="date1">
+  </div>
+
+  <div class="form-box">
+    <h3>Slip 2</h3>
+    <label>Customer Name</label>
+    <input type="text" id="name2">
+    <label>Customer Phone</label>
+    <input type="text" id="phone2">
+    <label>Address Line 1</label>
+    <input type="text" id="addr2_1">
+   
+    <label>State</label>
+    <select id="state2">
+      <option value="">Select State</option>
+     <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option>
+      <option>Bihar</option><option>Chhattisgarh</option><option>Goa</option>
+      <option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option>
+      <option>Jharkhand</option><option>Karnataka</option><option>Kerala</option>
+      <option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option>
+      <option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option>
+      <option>Odisha</option><option>Punjab</option><option>Rajasthan</option>
+      <option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option>
+      <option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option>
+      <option>West Bengal</option><option>Delhi</option><option>Puducherry</option>
+    </select>
+    <label>PIN Code</label>
+    <input type="text" id="pin2">
+    <label>Date</label>
+    <input type="date" id="date2">
+  </div>
+</div>
+
+<button class="btn" onclick="generateSlips()">Print Slips</button>
+
+<div id="printArea">
+  <div class="slip" id="slip1"></div>
+  <div class="slip" id="slip2"></div>
+</div>
+
+<script>
+  const myName = "Your Courier Company";
+  const myPhone = "9876543210";
+  const logoPath = "https://www.pngmart.com/files/22/Book-Logo-PNG-Photo.png"; // ✅ Change this to your actual logo image path
+
+  function generateSlips() {
+    const slip1 = {
+      name: document.getElementById('name1').value,
+      phone: document.getElementById('phone1').value,
+      addr1: document.getElementById('addr1_1').value,
+  
+      state: document.getElementById('state1').value,
+      pin: document.getElementById('pin1').value,
+      date: document.getElementById('date1').value
+    };
+
+    const slip2 = {
+      name: document.getElementById('name2').value,
+      phone: document.getElementById('phone2').value,
+      addr1: document.getElementById('addr2_1').value,
+  
+      state: document.getElementById('state2').value,
+      pin: document.getElementById('pin2').value,
+      date: document.getElementById('date2').value
+    };
+
+    document.getElementById('slip1').innerHTML = formatSlip(slip1);
+    document.getElementById('slip2').innerHTML = formatSlip(slip2);
+
+    document.getElementById('printArea').style.display = 'block';
+
+    setTimeout(() => {
+      window.print();
+      document.getElementById('printArea').style.display = 'none';
+    }, 300);
+  }
+
+  function formatSlip(data) {
+    return `
+      <img src="${logoPath}" alt="Logo" class="logo">
+     <h3>RECIVER'S DETAILS</h3>
+      <p><strong>Customer Name:</strong> <h6>${data.name}</h6></p>
+      <p><strong>Phone Number:</strong> <h6>${data.phone}</h6></p>
+      <p><strong>Address:</strong> <h6>${data.addr1}</h6></p>
+      <p><strong>State:</strong> <h6>${data.state}</h6></p>
+      <h5><p>PIN Code: ${data.pin}</h5></p>
+      <h3a><strong>FROM</strong></h3a>
+	  <p><h4><strong>MALIK EDUCATION SOLUTION</strong></h4></p>
+      <p><strong>ADV.KHALIQ SIR -- 8527511851:</strong></p>
+	  <p><strong>ADV.NIKHIL SIR -- 8743023792:</strong></p>
+	  <p><strong>Date:</strong> <h7>${data.date}</h7></p>
+	  <h5>AUTH. SING..........................................</h5>
+    `;
+  }
+</script>
+
+</body>
+</html>
